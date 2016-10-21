@@ -18,17 +18,19 @@
 {% endblock %}
 
 {% block news %}
-        <section id="two" class="spotlight style2 right">
-            <span class="image fit main"><img src="/images/" alt="" /></span>
+    {% for article in articles %}
+        <section id="two" class="spotlight {% if article.style == true %} style2 right {% else %} style3 left {% endif %}">
+            <span class="image fit main"><img src="/images/{{ article.pictureName }}" alt="" /></span>
             <div class="content">
                 <header>
-                    <h2></h2>
-                    <p></p>
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.lead }}</p>
                 </header>
                 <p></p>
                 <ul class="actions">
-                    <li><a href="/news/?id=" class="button">Узнать больше</a></li>
+                    <li><a href="/news/?id={{ article.getPK() }}" class="button">Узнать больше</a></li>
                 </ul>
             </div>
         </section>
+        {% endfor %}
 {% endblock %}

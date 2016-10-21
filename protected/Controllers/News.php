@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Article;
 use T4\Mvc\Controller;
 
 class News
@@ -9,6 +10,7 @@ class News
 {
     public function actionDefault()
     {
+        $this->data->articles = Article::findAll();
 
     }
 
