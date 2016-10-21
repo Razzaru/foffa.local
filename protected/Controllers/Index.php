@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Item;
 use T4\Mvc\Controller;
 
 class Index
@@ -10,7 +11,6 @@ class Index
 
     public function actionDefault()
     {
-
     }
     
     public function actionTest()

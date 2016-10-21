@@ -16,4 +16,9 @@ class News
     {
         
     }
+
+    public function actionAddarticle()
+    {
+
+    }
 }

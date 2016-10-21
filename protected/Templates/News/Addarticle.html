@@ -1,0 +1,48 @@
+{% extends 'Index.html' %}
+
+{% block banner %}
+    <section id="banner">
+        <div class="content">
+            <header>
+                <h2></h2>
+                <p> <br>
+                </p>
+            </header>
+            <span class="image"><img src="images/logo.jpg" alt="" /></span>
+        </div>
+    </section>
+{% endblock %}
+
+{% block form %}
+    <section class="wrapper style1 special fade-up">
+        <div class="container">
+            <h3>Form</h3>
+            <form method="post" action="#">
+                <div class="row uniform 50%">
+                    <div class="12u 12u$(xsmall)">
+                        <input type="text" name="title" id="title" value="" placeholder="Title">
+                    </div>
+                    <br>
+                    <div class="12u 12u$(xsmall)">
+                        <input type="text" name="descriprtion" id="descriprtion" value="" placeholder="Description">
+                    </div>
+                    <br>
+                    <div class="12u 12u$(xsmall)">
+                        <textarea name="lead" id="lead" placeholder="Enter the lead" rows="6"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="12u$ 12u$(xsmall)">
+                    <textarea name="article" id="article" placeholder="Enter the article" rows="6"></textarea>
+                </div>
+                <br>
+                <div class="12u$">
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="special"></li>
+                        <li><input type="reset" value="Reset"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
