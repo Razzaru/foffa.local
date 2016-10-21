@@ -1,0 +1,101 @@
+{% extends 'Index.html' %}
+
+
+{% block banner %}
+    <section id="banner">
+        <div class="content">
+            <header>
+                <h2></h2>
+                <p> <br>
+                </p>
+            </header>
+            <span class="image"><img src="images/logo.jpg" alt="" /></span>
+        </div>
+    </section>
+{% endblock %}
+
+{% block featuredItem %}
+    <section id="one" class="spotlight style1 bottom">
+        <span class="image fit main"><img src="images/{{ featuredItem.pictureName }}" alt="" /></span>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="4u 12u$(medium)">
+                        <header>
+                            <h2>{{ featuredItem.title }}</h2>
+                            <p>{{ featuredItem.description }}</p>
+                        </header>
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <p>{{ featuredItem.lead }}</p>
+                    </div>
+                    <div class="4u$ 12u$(medium)">
+                        <p>{{ featuredItem.article }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block leads %}
+    {% for lead in leads %}
+        <section id="two" class="spotlight {% if lead.style == true %} style2 right {% else %} style3 left {% endif %}">
+            <span class="image fit main"><img src="images/{{ lead.pictureName }}" alt="" /></span>
+            <div class="content">
+                <header>
+                    <h2>{{ lead.title }}</h2>
+                    <p>{{ lead.description }}</p>
+                </header>
+                <p>{{ lead.lead }}</p>
+                <ul class="actions">
+                    <li><a href="#" class="button">Узнать больше</a></li>
+                </ul>
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}
+
+{% block features %}
+    <section id="four" class="wrapper style1 special fade-up">
+        <div class="container">
+            <header class="major">
+                <h2>Ганин неохотно вошел в комнату.</h2>
+                <p>В ней было очень мало вещей и очень много беспорядка.</p>
+            </header>
+            <div class="box alt">
+                <div class="row uniform">
+                    {% for feature in features %}
+                        <section class="4u 6u(medium) 12u$(xsmall)">
+                            <span class="icon alt major fa-{{ feature.logo }}"></span>
+                            <h3>{{ feature.title }}</h3>
+                            <p>{{ feature.description }}</p>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+            <footer class="major">
+                <ul class="actions">
+                    <li><a href="#" class="button">Скорее написать мне!</a></li>
+                </ul>
+            </footer>
+        </div>
+    </section>
+{% endblock %}
+
+{% block email %}
+    <section id="five" class="wrapper style2 special fade">
+        <div class="container">
+            <header>
+                <h2>Конечно, конечно, Алексей Иванович.</h2>
+                <p>Отчего вы не женаты, дорогой мой. А?</p>
+            </header>
+            <form method="post" action="#" class="container 50%">
+                <div class="row uniform 50%">
+                    <div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Ваш e-mail адрес" /></div>
+                    <div class="4u$ 12u$(xsmall)"><input type="submit" value="Будь на связи!" class="fit special" /></div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
