@@ -11,12 +11,11 @@ class News
     public function actionDefault()
     {
         $this->data->articles = Article::findAll();
-
     }
 
-    public function actionArticle()
+    public function actionArticle($id)
     {
-        
+        $this->data->article = Article::findByPK($id);
     }
 
     public function actionAddarticle()
