@@ -14,23 +14,23 @@
     </section>
 {% endblock %}
 
-{% block featuredItem %}
+{% block featuredArticle %}
     <section id="one" class="spotlight style1 bottom">
-        <span class="image fit main"><img src="images/{{ featuredItem.pictureName }}" alt="" /></span>
+        <span class="image fit main"><img src="images/{{ featuredArticle.pictureName }}" alt="" /></span>
         <div class="content">
             <div class="container">
                 <div class="row">
                     <div class="4u 12u$(medium)">
                         <header>
-                            <h2>{{ featuredItem.title }}</h2>
-                            <p>{{ featuredItem.description }}</p>
+                            <h2>{{ featuredArticle.title }}</h2>
+                            <p>{{ featuredArticle.description }}</p>
                         </header>
                     </div>
                     <div class="4u 12u$(medium)">
-                        <p>{{ featuredItem.lead }}</p>
+                        <p>{{ featuredArticle.lead }}</p>
                     </div>
                     <div class="4u$ 12u$(medium)">
-                        <p>{{ featuredItem.article }}</p>
+                        <p>{{ featuredArticle.article }}</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             </div>
             <footer class="major">
                 <ul class="actions">
-                    <li><a href="#" class="button">Скорее написать мне!</a></li>
+                    <li><a href="/contacts" class="button">Скорее написать мне!</a></li>
                 </ul>
             </footer>
         </div>
