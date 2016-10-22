@@ -5,9 +5,7 @@
     <section id="banner">
         <div class="content">
             <header>
-                <h2></h2>
-                <p> <br>
-                </p>
+                <h2>Foffa bikes</h2>
             </header>
             <span class="image"><img src="images/logo.jpg" alt="" /></span>
         </div>
@@ -41,14 +39,13 @@
 {% block featuredItems %}
     {% for item in featuredItems %}
         <section id="two" class="spotlight {% if item.style == true %} style2 right {% else %} style3 left {% endif %}">
-            <span class="image fit main"><img src="../featuredItemsimages/news/{{ item.pictureName }}" alt="{{ item.model_name }}" /></span>
+            <span class="image fit main"><img src="images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" /></span>
             <div class="content">
                 <header>
                     <h2>{{ item.model_name }}</h2>
-                    <p>{{ item.description }}</p>
                 </header>
                 <ul class="actions">
-                    <li><a href="#" class="button">Узнать больше</a></li>
+                    <li><a href="/items/item?id={{ item.getPK() }}" class="button">Узнать больше</a></li>
                 </ul>
             </div>
         </section>
