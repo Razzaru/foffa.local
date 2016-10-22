@@ -17,23 +17,28 @@
     <section class="wrapper style1 special fade-up">
         <div class="container">
             <h3>Form</h3>
-            <form method="post" action="#">
+            <form method="post" action="/news/savearticle">
                 <div class="row uniform 50%">
                     <div class="12u 12u$(xsmall)">
-                        <input type="text" name="title" id="title" value="" placeholder="Title">
+                        <input type="text" name="article[title]" id="title" value="" placeholder="Title">
                     </div>
                     <br>
                     <div class="12u 12u$(xsmall)">
-                        <input type="text" name="descriprtion" id="descriprtion" value="" placeholder="Description">
+                        <input type="text" name="article[description]" id="descriprtion" value="" placeholder="Description">
                     </div>
                     <br>
                     <div class="12u 12u$(xsmall)">
-                        <textarea name="lead" id="lead" placeholder="Enter the lead" rows="6"></textarea>
+                        <textarea name="article[lead]" id="lead" placeholder="Enter the lead" rows="6"></textarea>
                     </div>
                 </div>
                 <br>
                 <div class="12u$ 12u$(xsmall)">
-                    <textarea name="article" id="article" placeholder="Enter the article" rows="6"></textarea>
+                    <textarea name="article[article]" id="article" placeholder="Enter the article" rows="6"></textarea>
+                </div>
+                <br>
+                <div class="12u$ 12u$(xsmall)">
+                    <input type="checkbox" id="is_featured" name="article[is_featured]">
+                    <label for="is_featured">Is this article featured?</label>
                 </div>
                 <br>
                 <div class="12u$">

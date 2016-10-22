@@ -27,4 +27,14 @@ class Queries
             ->limit(2);
         return $query->getQuery('mysql');
     }
+
+    static public function getLastArticle()
+    {
+        $query = new QueryBuilder();
+        $query->select()
+            ->from('news')
+            ->order('__id DESC')
+            ->limit(1);
+        return $query->getQuery('mysql');
+    }
 }
