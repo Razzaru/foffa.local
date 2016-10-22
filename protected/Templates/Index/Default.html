@@ -89,10 +89,13 @@
             <header>
                 <h2>Конечно, конечно, Алексей Иванович.</h2>
                 <p>Отчего вы не женаты, дорогой мой. А?</p>
+                {% if error != 'NULL' %}
+                    <p>{{ error }}</p>
+                {% endif %}
             </header>
-            <form method="post" action="#" class="container 50%">
+            <form method="post" action="/saveEmail" class="container 50%">
                 <div class="row uniform 50%">
-                    <div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Ваш e-mail адрес" /></div>
+                    <div class="8u 12u$(xsmall)"><input type="email" name="email[email]" id="email" placeholder="Ваш e-mail адрес" /></div>
                     <div class="4u$ 12u$(xsmall)"><input type="submit" value="Будь на связи!" class="fit special" /></div>
                 </div>
             </form>

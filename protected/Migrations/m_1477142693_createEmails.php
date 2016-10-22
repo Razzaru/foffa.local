@@ -10,10 +10,14 @@ class m_1477142693_createEmails
 
     public function up()
     {
+        $this->createTable('emails', [
+            'email' => ['type' => 'string']
+        ]);
     }
 
     public function down()
     {
+        $this->dropTable('emails');
     }
     
 }
