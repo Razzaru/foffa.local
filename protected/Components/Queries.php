@@ -17,12 +17,12 @@ class Queries
         return $query->getQuery('mysql');
     }
     
-    static public function getLastTwoLeads()
+    static public function getLastTwoItems()
     {
         $query = new QueryBuilder();
         $query->select()
-            ->from('news')
-            ->where('is_featured = 0')
+            ->from('items')
+            ->where('is_featured = 1')
             ->order('__id DESC')
             ->limit(2);
         return $query->getQuery('mysql');

@@ -19,7 +19,8 @@ class News
 
     public function actionArticle($id)
     {
-        $this->data->article = Article::findByPK($id);
+        $article = Article::findByPK($id);
+        $this->data->article = $article;
     }
 
     public function actionAddarticle()
@@ -28,6 +29,9 @@ class News
     }
     public function actionSavearticle($article)
     {
+        if(!$article->is_featured) {
+            $article->is_featured = '0';
+        }
         $newArticle = new Article();
         move_uploaded_file($_FILES['article']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/news/' . $_FILES['article']['name']['image']);
         $newArticle->fill($article);

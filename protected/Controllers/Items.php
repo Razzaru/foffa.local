@@ -17,4 +17,9 @@ class Items
     {
         $this->data->item = Item::findByPK($id);
     }
+
+    public function actionAdditem($item)
+    {
+        
+    }
 }

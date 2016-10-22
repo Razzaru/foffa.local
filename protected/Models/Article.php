@@ -50,10 +50,8 @@ class Article
     protected function sanitizeIs_featured($v)
     {
         if ($v === 'on') {
-            $v = '1';
-            return $v;
+            return 1;
         }
-        $v = '0';
-        return $v;
+        return '0';
     }
 }

@@ -23,14 +23,14 @@
                     <div class="4u 12u$(medium)">
                         <header>
                             <h2>{{ featuredArticle.title }}</h2>
-                            <p>{{ featuredArticle.description }}</p>
+                            <ul class="actions">
+                                <li><a href="#" class="button">Узнать больше</a></li>
+                            </ul>
                         </header>
                     </div>
-                    <div class="4u 12u$(medium)">
+                    <div class="8u 12u$(medium)">
+                        <p><em>{{ featuredArticle.description }}</em></p>
                         <p>{{ featuredArticle.lead }}</p>
-                    </div>
-                    <div class="4u$ 12u$(medium)">
-                        <p>{{ featuredArticle.article }}</p>
                     </div>
                 </div>
             </div>
@@ -38,16 +38,15 @@
     </section>
 {% endblock %}
 
-{% block leads %}
-    {% for lead in leads %}
-        <section id="two" class="spotlight {% if lead.style == true %} style2 right {% else %} style3 left {% endif %}">
-            <span class="image fit main"><img src="images/{{ lead.pictureName }}" alt="" /></span>
+{% block featuredItems %}
+    {% for item in featuredItems %}
+        <section id="two" class="spotlight {% if item.style == true %} style2 right {% else %} style3 left {% endif %}">
+            <span class="image fit main"><img src="../featuredItemsimages/news/{{ item.pictureName }}" alt="{{ item.model_name }}" /></span>
             <div class="content">
                 <header>
-                    <h2>{{ lead.title }}</h2>
-                    <p>{{ lead.description }}</p>
+                    <h2>{{ item.model_name }}</h2>
+                    <p>{{ item.description }}</p>
                 </header>
-                <p>{{ lead.lead }}</p>
                 <ul class="actions">
                     <li><a href="#" class="button">Узнать больше</a></li>
                 </ul>

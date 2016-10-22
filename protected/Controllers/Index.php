@@ -18,9 +18,9 @@ class Index
     public function actionDefault()
     {
         $lastFeaturedArticleQuery = Queries::getLastFeaturedArticle();
-        $lastTwoLeadsQuery = Queries::getLastTwoLeads();
+        $lastTwoItemsQuery = Queries::getLastTwoItems();
         $this->data->featuredArticle = Item::findAllByQuery($lastFeaturedArticleQuery)[0];
-        $this->data->leads = Item::findAllByQuery($lastTwoLeadsQuery);
+        $this->data->featuredItems = Item::findAllByQuery($lastTwoItemsQuery);
         $this->data->features = Feature::findAll();
     }
 
