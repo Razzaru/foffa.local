@@ -17,7 +17,7 @@
     <section class="wrapper style1 special fade-up">
         <div class="container">
             <h3>Form</h3>
-            <form method="post" action="/news/savearticle">
+            <form method="post" action="/news/savearticle" enctype="multipart/form-data">
                 <div class="row uniform 50%">
                     <div class="12u 12u$(xsmall)">
                         <input type="text" name="article[title]" id="title" value="" placeholder="Title">
@@ -39,6 +39,9 @@
                 <div class="12u$ 12u$(xsmall)">
                     <input type="checkbox" id="is_featured" name="article[is_featured]">
                     <label for="is_featured">Is this article featured?</label>
+                </div>
+                <div class="12u$ 12u$(xsmall)">
+                    <input type="file" id="image" name="article[image]">
                 </div>
                 <br>
                 <div class="12u$">

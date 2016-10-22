@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Components\GetStyle;
 use App\Models\Characteristic;
 use App\Models\Feature;
 use App\Models\Item;
@@ -23,8 +24,7 @@ class Index
     
     public function actionTest()
     {
-        $data = Characteristic::findByPK(1);
-        var_dump($data->items);die;
+        GetStyle::getStyle();
     }
 
 }

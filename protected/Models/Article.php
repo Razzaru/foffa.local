@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use T4\Core\Exception;
 use T4\Orm\Model;
 
 class Article
@@ -19,4 +20,40 @@ class Article
             'style' => ['type' => 'boolean']
         ]
     ];
+
+    protected function validateTitle($v)
+    {
+        if (strlen($v) > 255) {
+            throw new Exception('Слишком длинное название');
+        }
+        return true;
+    }
+
+    protected function validateDescription($v)
+    {
+        if (strlen($v) > 255) {
+            throw new Exception('Слишком длинное описание');
+        }
+        return true;
+    }
+
+    protected function validatePictureName($v)
+    {
+        if ($v) {
+            if (!strpos($v, '.')) {
+                throw new Exception('Неверный формат картинки');
+            }
+            return true;
+        }
+    }
+
+    protected function sanitizeIs_featured($v)
+    {
+        if ($v === 'on') {
+            $v = '1';
+            return $v;
+        }
+        $v = '0';
+        return $v;
+    }
 }

@@ -37,4 +37,13 @@ class Queries
             ->limit(1);
         return $query->getQuery('mysql');
     }
+    
+    static public function findAllDesc()
+    {
+        $query = new QueryBuilder();
+        $query->select()
+            ->from('news')
+            ->order('__id DESC');
+        return $query->getQuery('mysql');
+    }
 }
