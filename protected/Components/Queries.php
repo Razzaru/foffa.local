@@ -37,6 +37,16 @@ class Queries
             ->limit(1);
         return $query->getQuery('mysql');
     }
+
+    static public function getLastItem()
+    {
+        $query = new QueryBuilder();
+        $query->select()
+            ->from('items')
+            ->order('__id DESC')
+            ->limit(1);
+        return $query->getQuery('mysql');
+    }
     
     static public function findAllDesc()
     {

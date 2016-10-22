@@ -8,54 +8,62 @@
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <img src="images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" />
+                <img src="../images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" width="1400"/>
                 <h2>{{ item.model_name }}</h2>
             </header>
             <section id="content">
                 <p class="align-center">{{ item.description }}</p>
                 <h3>Characteristics:</h3>
-                <dl>
-                    <div class="3u">
-                        <dt><strong>Frame:</strong></dt>
-                        <dd>{{ item.characteristic.frame }}</dd>
-                        <dt><strong>Rims:</strong></dt>
-                        <dd>{{ item.characteristic.rims }}</dd>
-                        <dt><strong>Hubs:</strong></dt>
-                        <dd>{{ item.characteristic.hubs }}</dd>
-                        <dt><strong>Tyres:</strong></dt>
-                        <dd>{{ item.characteristic.tyres }}</dd>
-                    </div>
-                    <div class="3u">
-                        <dt><strong>Crankset:</strong></dt>
-                        <dd>{{ item.characteristic.crankset }}</dd>
-                        <dt><strong>Bottom bracket:</strong></dt>
-                        <dd>{{ item.characteristic.bottom_bracket }}</dd>
-                        <dt><strong>Chain KMC:</strong></dt>
-                        <dd>{{ item.characteristic.chain_kmc }}</dd>
-                        <dt><strong>Bars:</strong></dt>
-                        <dd>{{ item.characteristic.bars }}</dd>
-                    </div>
-                    <div class="3u">
-                        <dt><strong>Stem:</strong></dt>
-                        <dd>{{ item.characteristic.stem }}</dd>
-                        <dt><strong>Tape:</strong></dt>
-                        <dd>{{ item.characteristic.tape }}</dd>
-                        <dt><strong>Brakes:</strong></dt>
-                        <dd>{{ item.characteristic.brakes }}</dd>
-                        <dt><strong>Calipers:</strong></dt>
-                        <dd>{{ item.characteristic.calipers }}</dd>
-                    </div>
-                    <div class="3u">
-                        <dt><strong>Seatpost:</strong></dt>
-                        <dd>{{ item.characteristic.seatpost }}</dd>
-                        <dt><strong>Saddle:</strong></dt>
-                        <dd>{{ item.characteristic.saddle }}</dd>
-                        <dt><strong>Pedals:</strong></dt>
-                        <dd>{{ item.characteristic.pedals }}</dd>
-                        <dt><strong>Weight:</strong></dt>
-                        <dd>{{ item.characteristic.weight }}</dd>
-                    </div>
-                </dl>
+                <table>
+                    <tr>
+                        <th><strong>Frame:</strong></th>
+                        <td>{{ item.characteristic.frame }}</td>
+                        <th><strong>Rims:</strong></th>
+                        <td>{{ item.characteristic.rims }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Hubs:</strong></th>
+                        <td>{{ item.characteristic.hubs }}</td>
+                        <th><strong>Tyres:</strong></th>
+                        <td>{{ item.characteristic.tyres }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Crankset:</strong></th>
+                        <td>{{ item.characteristic.crankset }}</td>
+                        <th><strong>Bottom bracket:</strong></th>
+                        <td>{{ item.characteristic.bottom_bracket }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Chain KMC:</strong></th>
+                        <td>{{ item.characteristic.chain_kmc }}</td>
+                        <th><strong>Bars:</strong></th>
+                        <td>{{ item.characteristic.bars }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Stem:</strong></th>
+                        <td>{{ item.characteristic.stem }}</td>
+                        <th><strong>Tape:</strong></th>
+                        <td>{{ item.characteristic.tape }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Brakes:</strong></th>
+                        <td>{{ item.characteristic.brakes }}</td>
+                        <th><strong>Calipers:</strong></th>
+                        <td>{{ item.characteristic.calipers }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Seatpost:</strong></th>
+                        <td>{{ item.characteristic.seatpost }}</td>
+                        <th><strong>Saddle:</strong></th>
+                        <td>{{ item.characteristic.saddle }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Pedals:</strong></th>
+                        <td>{{ item.characteristic.pedals }}</td>
+                        <th><strong>Weight:</strong></th>
+                        <td>{{ item.characteristic.weight }}</td>
+                    </tr>
+                </table>
             </section>
             <br>
         </div>

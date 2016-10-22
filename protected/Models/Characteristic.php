@@ -9,7 +9,6 @@ class Characteristic
 {
     static protected $schema = [
         'columns' => [
-            'product_id' => ['type' => 'int'],
             'frame' => ['type' => 'string'],
             'rims' => ['type' => 'string'],
             'hubs' => ['type' => 'string'],

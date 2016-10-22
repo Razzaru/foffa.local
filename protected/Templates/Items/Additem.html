@@ -1,10 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'Index.html' %}
 
-</body>
-</html>
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2></h2>
+        <p> <br>
+        </p>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Form</h3>
+      <form method="post" action="/items/saveitem" enctype="multipart/form-data">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="item[model_name]" id="model_name" value="" placeholder="Title">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <textarea name="item[description]" id="description" placeholder="Enter the description" rows="6"></textarea>
+          </div>
+          <br>
+          <div class="12u$">
+            <h4>You can choose a category from database:</h4>
+            <div class="select-wrapper">
+              <select name="presetCharacteristic" id="characteristic">
+                <option value="" selected>- Characteristic -</option>
+                {% for characteristic in characteristics %}
+                <option value="{{ characteristic.getPK() }}">{{ characteristic.getPK() }}: {{ characteristic.frame }}, {{ characteristic.rims }}, {{ characteristic.hubs }}, {{ characteristic.tyres }}, {{ characteristic.crankset }}...</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <h4>Or you can make a new one:</h4>
+            <input type="text" name="characteristic[frame]" id="frame" value="" placeholder="Frame">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[rims]" id="rims" value="" placeholder="Rims">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[hubs]" id="hubs" value="" placeholder="Hubs">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[tyres]" id="tyres" value="" placeholder="Tyres">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[crankset]" id="crankset" value="" placeholder="Crankset">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[bottom_bracket]" id="bottom_bracket" value="" placeholder="Bottom bracket">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[chain_kmc]" id="chain_kmc" value="" placeholder="Chain KMC">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[bars]" id="bars" value="" placeholder="Bars">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[stem]" id="stem" value="" placeholder="Stem">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[tape]" id="tape" value="" placeholder="Tape">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[brakes]" id="brakes" value="" placeholder="Brakes">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[calipers]" id="calipers" value="" placeholder="Calipers">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[seatpost]" id="seatpost" value="" placeholder="Seatpost">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[saddle]" id="saddle" value="" placeholder="Saddle">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[pedals]" id="pedals" value="" placeholder="Pedals">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[weight]" id="weight" value="" placeholder="Weight">
+          </div>
+        <br>
+        <div class="12u$ 12u$(xsmall)">
+          <input type="checkbox" id="is_featured" name="item[is_featured]">
+          <label for="is_featured">Is this item featured?</label>
+        </div>
+        <div class="12u$ 12u$(xsmall)">
+          <input type="file" id="image" name="item[image]">
+        </div>
+        <br>
+        <div class="12u$">
+          <ul class="actions">
+            <li><input type="submit" value="Add to site" class="special"></li>
+            <li><input type="reset" value="Reset"></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

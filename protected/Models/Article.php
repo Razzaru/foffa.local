@@ -37,16 +37,6 @@ class Article
         return true;
     }
 
-    protected function validatePictureName($v)
-    {
-        if ($v) {
-            if (!strpos($v, '.')) {
-                throw new Exception('Неверный формат картинки');
-            }
-            return true;
-        }
-    }
-
     protected function sanitizeIs_featured($v)
     {
         if ($v === 'on') {
