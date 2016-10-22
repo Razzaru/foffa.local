@@ -21,7 +21,6 @@ class m_1477061209_createSkeleton
         ]);
 
         $this->createTable('items', [
-            'characteristic_id' => ['type' => 'int'],
             'model_name' => ['type' => 'string'],
             'description' => ['type' => 'string'],
             'is_featured' => ['type' => 'boolean'],
@@ -36,7 +35,6 @@ class m_1477061209_createSkeleton
         ]);
 
         $this->createTable('characteristics', [
-            'product_id' => ['type' => 'int'],
             'frame' => ['type' => 'string'],
             'rims' => ['type' => 'string'],
             'hubs' => ['type' => 'string'],

@@ -13,19 +13,21 @@
 </section>
 {% endblock %}
 
-{% block bikes %}
-        <section id="two" class="spotlight  style2 right  style3 left ">
-            <span class="image fit main"><img src="images/items/" alt="" /></span>
+{% block items %}
+    {% for item in items %}
+        <section id="two" class="spotlight {% if item.style == true %} style2 right {% else %} style3 left {% endif %}">
+            <span class="image fit main"><img src="images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" /></span>
             <div class="content">
                 <header>
-                    <h2></h2>
+                    <h2>{{ item.model_name }}</h2>
                 </header>
-                <p></p>
+                <p>{{ item.description }}</p>
                 <ul class="actions">
-                    <li><a href="/items/?id=" class="button">Узнать больше</a></li>
+                    <li><a href="/items/item?id={{ item.getPK() }}" class="button">Узнать больше</a></li>
                 </ul>
             </div>
         </section>
+    {% endfor %}
 {% endblock %}
 
 {% block featuredItem %}

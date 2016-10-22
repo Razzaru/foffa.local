@@ -26,6 +26,9 @@ class Characteristic
             'saddle' => ['type' => 'string'],
             'pedals' => ['type' => 'string'],
             'weight' => ['type' => 'int'],
+        ],
+        'relations' => [
+            'items' => ['type' => self::HAS_MANY, 'model' => Item::class]
         ]
     ];
 }

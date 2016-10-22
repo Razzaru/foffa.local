@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Item;
 use T4\Mvc\Controller;
 
 class Items
@@ -9,11 +10,11 @@ class Items
 {
     public function actionDefault()
     {
-
+        $this->data->items = Item::findAll();
     }
 
-    public function actionItem()
+    public function actionItem($id)
     {
-        
+        $this->data->item = Item::findByPK($id);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Characteristic;
 use App\Models\Feature;
 use App\Models\Item;
 use App\Components\Queries;
@@ -22,7 +23,8 @@ class Index
     
     public function actionTest()
     {
-        
+        $data = Characteristic::findByPK(1);
+        var_dump($data->items);die;
     }
 
 }

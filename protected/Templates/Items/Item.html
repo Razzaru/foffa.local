@@ -1,23 +1,63 @@
 {% extends 'Index.html' %}
 
 {% block title %}
-
+{{ item.model_name }}
 {% endblock %}
 
 {% block article %}
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <img src="images/items/" alt="" />
-                <h2></h2>
+                <img src="images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" />
+                <h2>{{ item.model_name }}</h2>
             </header>
             <section id="content">
-                <p></p>
+                <p class="align-center">{{ item.description }}</p>
                 <h3>Characteristics:</h3>
-                <ul>
-                    <li></li>
-                </ul>
+                <dl>
+                    <div class="3u">
+                        <dt><strong>Frame:</strong></dt>
+                        <dd>{{ item.characteristic.frame }}</dd>
+                        <dt><strong>Rims:</strong></dt>
+                        <dd>{{ item.characteristic.rims }}</dd>
+                        <dt><strong>Hubs:</strong></dt>
+                        <dd>{{ item.characteristic.hubs }}</dd>
+                        <dt><strong>Tyres:</strong></dt>
+                        <dd>{{ item.characteristic.tyres }}</dd>
+                    </div>
+                    <div class="3u">
+                        <dt><strong>Crankset:</strong></dt>
+                        <dd>{{ item.characteristic.crankset }}</dd>
+                        <dt><strong>Bottom bracket:</strong></dt>
+                        <dd>{{ item.characteristic.bottom_bracket }}</dd>
+                        <dt><strong>Chain KMC:</strong></dt>
+                        <dd>{{ item.characteristic.chain_kmc }}</dd>
+                        <dt><strong>Bars:</strong></dt>
+                        <dd>{{ item.characteristic.bars }}</dd>
+                    </div>
+                    <div class="3u">
+                        <dt><strong>Stem:</strong></dt>
+                        <dd>{{ item.characteristic.stem }}</dd>
+                        <dt><strong>Tape:</strong></dt>
+                        <dd>{{ item.characteristic.tape }}</dd>
+                        <dt><strong>Brakes:</strong></dt>
+                        <dd>{{ item.characteristic.brakes }}</dd>
+                        <dt><strong>Calipers:</strong></dt>
+                        <dd>{{ item.characteristic.calipers }}</dd>
+                    </div>
+                    <div class="3u">
+                        <dt><strong>Seatpost:</strong></dt>
+                        <dd>{{ item.characteristic.seatpost }}</dd>
+                        <dt><strong>Saddle:</strong></dt>
+                        <dd>{{ item.characteristic.saddle }}</dd>
+                        <dt><strong>Pedals:</strong></dt>
+                        <dd>{{ item.characteristic.pedals }}</dd>
+                        <dt><strong>Weight:</strong></dt>
+                        <dd>{{ item.characteristic.weight }}</dd>
+                    </div>
+                </dl>
             </section>
+            <br>
         </div>
     </div>
 {% endblock %}

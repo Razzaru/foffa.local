@@ -15,6 +15,9 @@ class Item
             'is_featured' => ['type' => 'boolean'],
             'pictureName' => ['type' => 'string'],
             'style' => ['type' => 'boolean']
+        ],
+        'relations' => [
+            'characteristic' => ['type' => self::BELONGS_TO, 'model' => Characteristic::class]
         ]
     ];
 }
