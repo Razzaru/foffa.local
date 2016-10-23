@@ -1,0 +1,31 @@
+{% extends 'Index.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Login</h3>
+      {% for error in errors %}
+        <blockquote>{{ error.getMessage() }}</blockquote>
+      {% endfor %}
+      <form method="post" action="/login">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <input type="email" name="user[email]" id="email" value="" placeholder="E-mail">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <input type="password" name="user[password]" id="password" value="" placeholder="Password">
+          </div>
+          <br>
+          <div class="12u$">
+          <ul class="actions">
+            <li><input type="submit" value="Add to site" class="special"></li>
+            <li><input type="reset" value="Reset"></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

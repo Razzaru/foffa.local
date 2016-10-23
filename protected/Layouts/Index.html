@@ -36,7 +36,11 @@
         </li>
         <li><a href="/contacts">Contact us</a>
         <li><a href="/about">About</a></li>
-        <li><a href="/signup" class="button special">Sign up</a></li>
+        {% if app.user %}
+          <li><a href="/profile" class="button"><span class="fa fa-user">Profile</span></a></li>
+        {% else %}
+        <li><a href="/login" class="button special">Sign up</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
@@ -47,7 +51,7 @@
   {% block news %} {% endblock %}
   {% block article %} {% endblock %}
   {% block featuredItems %} {% endblock %}
-  {% block features %} {% endblock %}
+  <!--{% block features %} {% endblock %}-->
   {% block form %} {% endblock %}
   {% block email %} {% endblock %}
   {% endblock %}

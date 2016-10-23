@@ -22,7 +22,7 @@
                         <header>
                             <h2>{{ featuredArticle.title }}</h2>
                             <ul class="actions">
-                                <li><a href="/news/article?id={{ featuredArticle.getPK() }}" class="button">Узнать больше</a></li>
+                                <li><a href="/news/article?id={{ featuredArticle.getPK() }}" class="button">Learn more</a></li>
                             </ul>
                         </header>
                     </div>
@@ -83,16 +83,16 @@
     <section id="five" class="wrapper style2 special fade">
         <div class="container">
             <header>
-                <h2>Конечно, конечно, Алексей Иванович.</h2>
-                <p>Отчего вы не женаты, дорогой мой. А?</p>
+                <h2>Write us your email</h2>
+                <p>If you want to know more about Foffa</p>
                 {% if error != 'NULL' %}
                     <p>{{ error }}</p>
                 {% endif %}
             </header>
             <form method="post" action="/saveEmail" class="container 50%">
                 <div class="row uniform 50%">
-                    <div class="8u 12u$(xsmall)"><input type="email" name="email[email]" id="email" placeholder="Ваш e-mail адрес" /></div>
-                    <div class="4u$ 12u$(xsmall)"><input type="submit" value="Будь на связи!" class="fit special" /></div>
+                    <div class="8u 12u$(xsmall)"><input type="email" name="email[email]" id="email" placeholder="Your e-mail" /></div>
+                    <div class="4u$ 12u$(xsmall)"><input type="submit" value="Keep in touch" class="fit special" /></div>
                 </div>
             </form>
         </div>
