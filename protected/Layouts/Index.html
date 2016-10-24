@@ -44,7 +44,11 @@
             <li><a href="/admin" class="button"><span class="fa fa-cube">Admin Panel</span></a></li>
         {% endif %}
         {% if app.user %}
-          <li><a href="/profile" class="button"><span class="fa fa-user">Profile</span></a></li>
+          <li><a href="/profile" class="button"><span class="fa fa-user">Profile</span></a>
+            <ul>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </li>
         {% else %}
         <li><a href="/login" class="button special">Sign up</a></li>
         {% endif %}

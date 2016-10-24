@@ -34,8 +34,25 @@ class Login
     public function actionRegistration($user = null)
     {
         if(null !== $user) {
-            $newMember = new User();
+            try {
+                $newMember = new User();
+                $newMember->fill($user);
+                $login = new Identity();
+                $login->login($newMember);
+                if($this->app->user->roles[0]->name === 'admin') {
+                    $this->redirect('/admin');
+                }
+                $this->redirect('/');
+            } catch (\T4\Core\MultiException $e) {
+                $this->data->errors = $e;
+            }
         }
+    }
+
+    public function actionLogout()
+    {
+        Identity::logout();
+        $this->redirect('/');
     }
 
 }

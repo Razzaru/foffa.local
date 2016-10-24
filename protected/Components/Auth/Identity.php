@@ -55,4 +55,9 @@ class Identity
 
         Helpers::setCookie('foffaAuth', $hash, time()+30*24*60*60);
     }
+    
+    static public function logout()
+    {
+        Helpers::unsetCookie('foffaAuth');
+    }
 }
