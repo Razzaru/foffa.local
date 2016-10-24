@@ -22,6 +22,9 @@ class Items
         $this->data->item = Item::findByPK($id);
     }
 
+    /**
+     * @TODO categories
+     */
     public function actionAdditem()
     {
         $characteristics = Characteristic::findAll();

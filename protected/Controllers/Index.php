@@ -30,8 +30,10 @@ class Index
     {
         try {
             $em = new Email();
-            $em->fill($email);
-            $em->save();
+            if(!empty($email)) {
+                $em->fill($email);
+                $em->save();
+            }
             $this->redirect('http://foffa.local');
         } catch (Exception $e) {
             var_dump($e);die;
