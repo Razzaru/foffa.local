@@ -2,6 +2,7 @@
 
 namespace App\Components\Auth;
 
+use App\Models\Item;
 use App\Models\User;
 use App\Models\UserSession;
 use T4\Http\Helpers;
@@ -59,5 +60,13 @@ class Identity
     static public function logout()
     {
         Helpers::unsetCookie('foffaAuth');
+    }
+
+    public function register($data)
+    {
+        $newMember = new User();
+        $newMember->fill($data);
+        $newMember->password = password_hash($newMember->password, PASSWORD_DEFAULT);
+        $newMember->save();
     }
 }

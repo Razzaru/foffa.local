@@ -4,7 +4,7 @@ namespace App\Migrations;
 
 use T4\Orm\Migration;
 
-class m_1477224004_createAuthorizaion
+class m_0000000001_createAuthorizaion
     extends Migration
 {
 

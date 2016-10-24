@@ -17,7 +17,8 @@ class Item
             'style' => ['type' => 'boolean']
         ],
         'relations' => [
-            'characteristic' => ['type' => self::BELONGS_TO, 'model' => Characteristic::class]
+            'characteristic' => ['type' => self::BELONGS_TO, 'model' => Characteristic::class],
+            'users' => ['type' => self::MANY_TO_MANY, 'model' => User::class]
         ]
     ];
 

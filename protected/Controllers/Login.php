@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Components\Auth\Identity;
 use App\Components\Auth\MultiException;
+use App\Models\Item;
 use App\Models\User;
 use T4\Mvc\Controller;
 
@@ -33,12 +34,12 @@ class Login
     
     public function actionRegistration($user = null)
     {
+        $this->data->items = Item::findAll();
         if(null !== $user) {
             try {
-                $newMember = new User();
-                $newMember->fill($user);
                 $login = new Identity();
-                $login->login($newMember);
+                $login->register($user);
+                $login->login($user);
                 if($this->app->user->roles[0]->name === 'admin') {
                     $this->redirect('/admin');
                 }

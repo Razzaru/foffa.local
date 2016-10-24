@@ -50,13 +50,18 @@
             </ul>
           </li>
         {% else %}
-        <li><a href="/login" class="button special">Sign up</a></li>
+        <li><a href="/login" class="button special">Sign up</a>
+          <ul>
+            <li><a href="/registration">Register</a></li>
+          </ul>
+        </li>
         {% endif %}
       </ul>
     </nav>
   </header>
   {% block body %}
   {% block banner %} {% endblock %}
+  {% block panel %} {% endblock %}
   {% block featuredArticle %} {% endblock %}
   {% block items %} {% endblock %}
   {% block news %} {% endblock %}

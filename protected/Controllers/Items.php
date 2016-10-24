@@ -51,4 +51,11 @@ class Items
         $newItem->save();
         $this->redirect('http://foffa.local/items');
     }
+    
+    public function actionDeleteItem($id)
+    {
+        $item = Item::findByPK($id);
+        $item->delete();
+        $this->redirect('/');
+    }
 }

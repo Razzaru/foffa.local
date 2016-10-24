@@ -1,1 +1,61 @@
 {% extends 'Index.html' %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>Register</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Add new item</h3>
+      <form method="post" action="/registration" enctype="multipart/form-data">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <input type="email" name="user[email]" id="email" value="" placeholder="E-mail">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <input type="password" name="user[password]" id="password" value="" placeholder="Password">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="user[firstName]" id="firstName" value="" placeholder="First Name">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="user[lastName]" id="lastName" value="" placeholder="Last Name">
+          </div>
+          <br>
+          <div class="12u$">
+            <h4>Do you have a foffa bike?</h4>
+            <div class="select-wrapper">
+              <select name="user[presetItem]" id="item">
+                <option value="" selected>- Nope, i don't! -</option>
+                {% for item in items %}
+                  <option value="{{ item.getPK() }}">{{ item.model_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="12u$ 12u$(xsmall)">
+            <label for="image">Add an avatar</label>
+            <input type="file" id="image" name="user[avatar]">
+          </div>
+          <br>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input type="submit" value="Register!" class="special"></li>
+              <li><input type="reset" value="Reset"></li>
+            </ul>
+          </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

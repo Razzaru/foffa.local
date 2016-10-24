@@ -3,10 +3,8 @@
 namespace App\Controllers;
 
 
+use App\Models\Article;
 use T4\Mvc\Controller;
-use App\Models\Feature;
-use App\Models\Item;
-use App\Components\Queries;
 
 class Admin
     extends Controller
@@ -26,6 +24,29 @@ class Admin
      * @TODO admin panel
      */
     public function actionDefault()
+    {
+        
+    }
+
+    public function actionArticles()
+    {
+        $this->data->articles = Article::findAll();
+    }
+
+    public function actionUpdateArticle($id, $updData = null)
+    {
+        $this->data->article = Article::findByPK($id);
+
+        if(null !== $article)
+        {
+            $article = new Article();
+            $article->fill($updData);
+            $article->save();
+            $this->redirect('/admin/articles');
+        }
+    }
+
+    public function actionDeleteArticle($id)
     {
         
     }

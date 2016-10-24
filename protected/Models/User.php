@@ -16,7 +16,8 @@ class User
             'lastName' => ['type' => 'string', 'length' => 50]  
         ],
         'relations' => [
-            'roles' => ['type' => self::MANY_TO_MANY, 'model' => Role::class]
+            'roles' => ['type' => self::MANY_TO_MANY, 'model' => Role::class],
+            'items' => ['type' => self::MANY_TO_MANY, 'model' => Item::class]
         ]
     ];
 

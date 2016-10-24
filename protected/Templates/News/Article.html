@@ -4,6 +4,17 @@
     {{ article.title }}
 {% endblock %}
 
+{% block banner %}
+    <section id="banner">
+        <div class="content">
+            <header>
+                <h2>{{ article.title }}</h2>
+            </header>
+            <span class="image"><img src="images/logo.jpg" alt="" /></span>
+        </div>
+    </section>
+{% endblock %}
+
 {% block article %}
     <div id="main" class="wrapper style1">
         <div class="container">

@@ -10,3 +10,29 @@
     </div>
   </section>
 {% endblock %}
+
+{% block panel %}
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <h2>Admin functions:</h2>
+      </header>
+      <section id="content">
+        <table>
+          <tr>
+            <th>Article manipulations:</th>
+            <td><a href="/admin/articles" class="button special" style="float:right;">Go</a></td>
+          </tr>
+          <tr>
+            <th>Item manipulations:</th>
+            <td><a href="/admin/items" class="button special" style="float:right;">Go</a></td>
+          </tr>
+          <tr>
+            <th>Index manipulations:</th>
+            <td><a href="/admin/index" class="button special" style="float:right;">Go</a></td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </div>
+{% endblock %}
