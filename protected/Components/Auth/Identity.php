@@ -68,5 +68,10 @@ class Identity
         $newMember->fill($data);
         $newMember->password = password_hash($newMember->password, PASSWORD_DEFAULT);
         $newMember->save();
+        if(!empty($data->__item_id)) {
+            $item = Item::findByPK($data->__item_id);
+            $newMember->items->add($item);
+            $newMember->save();
+        }
     }
 }
