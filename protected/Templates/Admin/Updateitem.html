@@ -1,0 +1,97 @@
+{% extends 'Index.html' %}
+
+{% block title %} Update an item {% endblock %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>You can update an item here</h2>
+      </header>
+      <span class="image"><img src="../images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Add new item</h3>
+      <form method="post" action="/admin/updateitem?id={{ item.getPK() }}" enctype="multipart/form-data">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="item[model_name]" id="model_name" value="{{ item.model_name }}" placeholder="Title">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <textarea name="item[description]" id="description" placeholder="Enter the description" rows="6">{{ item.description }}</textarea>
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <h4>Category update:</h4>
+            <input type="text" name="characteristic[frame]" id="frame" value="{{ characteristic.frame }}" placeholder="Frame">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[rims]" id="rims" value={{ characteristic.rims }}"" placeholder="Rims">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[hubs]" id="hubs" value="{{ characteristic.hubs }}" placeholder="Hubs">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[tyres]" id="tyres" value="{{ characteristic.tyres }}" placeholder="Tyres">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[crankset]" id="crankset" value="{{ characteristic.crankset }}" placeholder="Crankset">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[bottom_bracket]" id="bottom_bracket" value="{{ characteristic.bottom_bracket }}" placeholder="Bottom bracket">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[chain_kmc]" id="chain_kmc" value="{{ characteristic.chain_kmc }}" placeholder="Chain KMC">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[bars]" id="bars" value="{{ characteristic.bars }}" placeholder="Bars">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[stem]" id="stem" value="{{ characteristic.stem }}" placeholder="Stem">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[tape]" id="tape" value="{{ characteristic.tape }}" placeholder="Tape">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[brakes]" id="brakes" value="{{ characteristic.brakes }}" placeholder="Brakes">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[calipers]" id="calipers" value="{{ characteristic.calipers }}" placeholder="Calipers">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[seatpost]" id="seatpost" value="{{ characteristic.seatpost }}" placeholder="Seatpost">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[saddle]" id="saddle" value="{{ characteristic.saddle }}" placeholder="Saddle">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[pedals]" id="pedals" value="{{ characteristic.pedals }}" placeholder="Pedals">
+          </div>
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="characteristic[weight]" id="weight" value="{{ characteristic.weight }}" placeholder="Weight">
+          </div>
+          <br>
+          <div class="12u$ 12u$(xsmall)">
+            <input type="checkbox" id="is_featured" name="item[is_featured]">
+            <label for="is_featured">Is this item featured?</label>
+          </div>
+          <div class="12u$ 12u$(xsmall)">
+            <input type="file" id="image" name="item[image]">
+          </div>
+          <br>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input type="submit" value="Update" class="special"></li>
+              <li><input type="reset" value="Reset"></li>
+            </ul>
+          </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

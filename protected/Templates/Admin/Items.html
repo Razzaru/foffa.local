@@ -1,0 +1,37 @@
+{% extends 'Index.html' %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>Item manipulations</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block panel %}
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <section id="content">
+        <ul class="actions fit">
+          <li><a href="/admin" class="button special fit">Back</a></li>
+          <li><a href="/admin/additem" class="button special fit">Add item</a></li>
+        </ul>
+        <table>
+          {% for item in items %}
+            <tr>
+              <th>{{ item.model_name }}</th>
+              <td>
+                <a href="/admin/updateitem?id={{ item.getPK() }}" class="button" style="float: right">Update</a>
+                <a href="/admin/deleteitem?id={{ item.getPK() }}" class="button" style="float: right">Delete</a>
+                <a href="/items/item?id={{ item.getPK() }}" class="button" target="_blank" style="float: right">Read</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </section>
+    </div>
+  </div>
+{% endblock %}

@@ -17,7 +17,7 @@ class User
         ],
         'relations' => [
             'roles' => ['type' => self::MANY_TO_MANY, 'model' => Role::class],
-            'items' => ['type' => self::MANY_TO_MANY, 'model' => Item::class]
+            'items' => ['type' => self::MANY_TO_MANY, 'model' => Item::class, 'by' => '__users_to_items']
         ]
     ];
 

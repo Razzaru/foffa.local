@@ -36,7 +36,7 @@
           <div class="12u$">
             <h4>Do you have a foffa bike?</h4>
             <div class="select-wrapper">
-              <select name="user[presetItem]" id="item">
+              <select name="user[items]" id="item">
                 <option value="" selected>- Nope, i don't! -</option>
                 {% for item in items %}
                   <option value="{{ item.getPK() }}">{{ item.model_name }}</option>
