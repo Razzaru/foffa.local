@@ -13,7 +13,8 @@ class User
             'email' => ['type' => 'string'],
             'password' => ['type' => 'string'],
             'firstName' => ['type' => 'string', 'length' => 50],
-            'lastName' => ['type' => 'string', 'length' => 50]  
+            'lastName' => ['type' => 'string', 'length' => 50]  ,
+            'avatar' => ['type' => 'string']
         ],
         'relations' => [
             'roles' => ['type' => self::MANY_TO_MANY, 'model' => Role::class],

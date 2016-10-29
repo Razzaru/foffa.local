@@ -32,6 +32,10 @@ class Login
         $this->data->items = Item::findAll();
         if(null !== $user) {
             try {
+                if(!empty($_FILES['user'])) {
+                    $user->avatar = $_FILES['user']['name']['avatar'];
+                    move_uploaded_file($_FILES['user']['tmp_name']['avatar'], ROOT_PATH_PUBLIC . '/images/users/' . $_FILES['user']['name']['avatar']);
+                }
                 $login = new Identity();
                 $login->register($user);
                 $login->login($user);

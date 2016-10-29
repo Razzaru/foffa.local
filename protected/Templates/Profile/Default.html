@@ -7,11 +7,31 @@
       <header>
         <h2>It's your profile, {{ user.firstName }}</h2>
       </header>
-      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+      <span class="image"><img src="images/users/{{ user.avatar }}" alt="" /></span>
     </div>
   </section>
 {% endblock %}
 
 {% block user %}
-
+    <div id="main" class="wrapper style1">
+      <div class="container">
+        <header class="major">
+          <h2>Your profile: <a href="/profile/edit" class="fa fa-pencil-square-o"></a></h2>
+        </header>
+        <section id="content row">
+          <h3>First name: {{ user.firstName }}</h3>
+          <h3>Last name: {{ user.lastName }}</h3>
+          <h3>My bikes:</h3>
+          <div class="row 50% uniform">
+          {% for item in user.items %}
+            <div class="4u 6u(xsmall)">
+              <a href="/items/item?id={{ item.getPk() }}" class="image fit">
+                <img src="images/items/{{ item.pictureName }}" alt="">
+              </a>
+            </div>
+          {% endfor %}
+          </div>
+        </section>
+      </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'Index.html' %}
+
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>There you can edit your profile</h2>
+      </header>
+      <span class="image"><img src="../images/users/{{ user.avatar }}" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Registration form</h3>
+      <form method="post" action="/profile/edit" enctype="multipart/form-data">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <label for="email">Email:</label>
+            <input type="email" name="user[email]" id="email" value="{{ user.email }}" placeholder="E-mail">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="user[firstName]" id="firstName" value="{{ user.firstName }}" placeholder="First Name">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="user[lastName]" id="lastName" value="{{ user.lastName }}" placeholder="Last Name">
+          </div>
+          <br>
+          <div class="12u$">
+            <h4>Add a bike:</h4>
+            <div class="select-wrapper">
+              <select name="itemId" id="item">
+                <option value="" selected>- Do not want! -</option>
+                {% for item in items %}
+                  <option value="{{ item.getPK() }}">{{ item.model_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <br>
+            <h4>Delete a bike:</h4>
+            <div class="select-wrapper">
+              <select name="deleteItemId" id="deleteItem">
+                <option value="" selected>- Do not want! -</option>
+                {% for item in user.items %}
+                  <option value="{{ item.getPK() }}">{{ item.model_name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="12u$ 12u$(xsmall)">
+            <label for="image">Edit an avatar</label>
+            <input type="file" id="image" name="user[avatar]">
+          </div>
+          <br>
+          <div class="12u$">
+            <ul class="actions">
+              <li><input type="submit" value="Register!" class="special"></li>
+              <li><input type="reset" value="Reset"></li>
+            </ul>
+          </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}
