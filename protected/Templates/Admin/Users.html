@@ -1,0 +1,45 @@
+{% extends 'Index.html' %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>User Manipulations</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block panel %}
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <h2>Users:</h2>
+      </header>
+      <section id="content">
+        <table class="alt">
+          {% for user in users %}
+            <tr>
+              <td{% if user.roles[0].title == 'Администратор' %} style="color: red" {% endif %}>{{ user.getPK() }}</td>
+              <td{% if user.roles[0].title == 'Администратор' %} style="color: red" {% endif %}>{{ user.email }}</td>
+              <td{% if user.roles[0].title == 'Администратор' %} style="color: red" {% endif %}>{{ user.firstName }}</td>
+              <td{% if user.roles[0].title == 'Администратор' %} style="color: red" {% endif %}>{{ user.lastName }}</td>
+              <td><a href="/admin/deleteuser?id={{ user.getPK() }}" class="button">Delete</a></td>
+              {% if user.isBlocked == true %}
+                <td><a href="/admin/unblockuser?id={{ user.getPK() }}" class="button">Unblock</a></td>
+              {% else %}
+                <td><a href="/admin/blockuser?id={{ user.getPK() }}" class="button">Block</a></td>
+              {% endif %}
+              {% if user.roles[0].title != 'Администратор' %}
+                <td><a href="/admin/uproleuser?id={{ user.getPK() }}" class="button">Give admin functions</a></td>
+              {% else %}
+                <td><a href="/admin/downroleuser?id={{ user.getPK() }}" class="button">Remove admin functions</a></td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </table>
+      </section>
+    </div>
+  </div>
+{% endblock %}

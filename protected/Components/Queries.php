@@ -56,4 +56,13 @@ class Queries
             ->order('__id DESC');
         return $query->getQuery('mysql');
     }
+
+    static public function deleteItemFromProfile($itemId, $userId)
+    {
+        $query = new QueryBuilder();
+        $query->delete('__users_to_items')
+            ->where('__user_id = ' . $userId . ' AND __item_id = ' . $itemId);
+        return $query->getQuery('mysql');
+
+    }
 }

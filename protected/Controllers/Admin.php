@@ -7,6 +7,8 @@ use App\Components\GetStyle;
 use App\Models\Article;
 use App\Models\Characteristic;
 use App\Models\Item;
+use App\Models\Role;
+use App\Models\User;
 use T4\Mvc\Controller;
 
 class Admin
@@ -16,11 +18,14 @@ class Admin
     public function access($action)
     {
         if (!empty($this->app->user)) {
-            if($this->app->user->roles[0]->name === 'admin') {
+            if ($this->app->user->roles[0]->name === 'admin') {
+                if ($this->app->user->isBlocked == '1') {
+                    return false;
+                }
                 return true;
             }
+            return false;
         }
-        return false;
     }
 
     /**
@@ -28,7 +33,6 @@ class Admin
      */
     public function actionDefault()
     {
-        
     }
 
     public function actionArticles()
@@ -141,5 +145,50 @@ class Admin
             $newItem->save();
             $this->redirect('/admin/items');
         }
+    }
+
+    /**
+     * @TODO манипуляции пользователями и всякое такое
+     * @TODO непонятно как убрать что-либо из коллекции
+     */
+    public function actionUsers()
+    {
+        $this->data->users = User::findAll();
+    }
+
+    public function actionUproleUser($id)
+    {
+        $admin = Role::findByName('admin');
+        $user = User::findByPK($id);
+        $user->roles->add($admin);
+        $user->save();
+        $this->redirect('/admin/users');
+    }
+
+    public function actionDownroleUser($id)
+    {
+    }
+
+    public function actionDeleteUser($id)
+    {
+        $user = User::findByPK($id);
+        $user->delete();
+        $this->redirect('/admin/users');
+    }
+    
+    public function actionBlockUser($id)
+    {
+        $user = User::findByPK($id);
+        $user->isBlocked = true;
+        $user->save();
+        $this->redirect('/admin/users');
+    }
+
+    public function actionUnblockUser($id)
+    {
+        $user = User::findByPK($id);
+        $user->isBlocked = 0;
+        $user->save();
+        $this->redirect('/admin/users');
     }
 }

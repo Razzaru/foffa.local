@@ -14,7 +14,8 @@ class User
             'password' => ['type' => 'string'],
             'firstName' => ['type' => 'string', 'length' => 50],
             'lastName' => ['type' => 'string', 'length' => 50]  ,
-            'avatar' => ['type' => 'string']
+            'avatar' => ['type' => 'string'],
+            'isBlocked' => ['type' => 'boolean']
         ],
         'relations' => [
             'roles' => ['type' => self::MANY_TO_MANY, 'model' => Role::class],

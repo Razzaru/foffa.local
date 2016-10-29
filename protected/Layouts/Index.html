@@ -24,20 +24,8 @@
     <nav id="nav">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/news">News</a>
-          {% if app.user.roles[0].name == 'admin' %}
-            <ul>
-              <li><a href="/news/addarticle">Add article</a></li>
-            </ul>
-        {% endif %}
-        </li>
-        <li><a href="/items">Items</a>
-          {% if app.user.roles[0].name == 'admin' %}
-            <ul>
-              <li><a href="/items/additem">Add item</a></li>
-            </ul>
-        {% endif %}
-        </li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/items">Items</a></li>
         <li><a href="/contacts">Contact us</a>
         <li><a href="/about">About</a></li>
         {% if app.user.roles[0].name == 'admin' %}
