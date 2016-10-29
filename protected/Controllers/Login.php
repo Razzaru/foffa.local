@@ -26,11 +26,6 @@ class Login
             }
         }
     }
-
-    public function actionProfile()
-    {
-        $this->data->user = User::findByEmail($this->app->user->email);
-    }
     
     public function actionRegistration($user = null)
     {
@@ -52,6 +47,8 @@ class Login
 
     public function actionLogout()
     {
+        $session = $this->app->user->session;
+        $session->delete();
         Identity::logout();
         $this->redirect('/');
     }

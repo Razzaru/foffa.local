@@ -141,8 +141,5 @@ class Admin
             $newItem->save();
             $this->redirect('/admin/items');
         }
-
-
     }
-
 }
