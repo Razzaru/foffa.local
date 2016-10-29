@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Components\GetStyle;
+use App\Models\About;
 use App\Models\Article;
 use App\Models\Characteristic;
 use App\Models\Item;
@@ -11,6 +12,12 @@ use App\Models\Role;
 use App\Models\User;
 use T4\Mvc\Controller;
 
+/**
+ * Class Admin
+ * @package App\Controllers
+ * 
+ * @TODO удаление картинок после их замены
+ */
 class Admin
     extends Controller
 {
@@ -27,10 +34,7 @@ class Admin
             return false;
         }
     }
-
-    /**
-     * @TODO admin panel
-     */
+    
     public function actionDefault()
     {
     }
@@ -148,7 +152,6 @@ class Admin
     }
 
     /**
-     * @TODO манипуляции пользователями и всякое такое
      * @TODO непонятно как убрать что-либо из коллекции
      */
     public function actionUsers()
@@ -190,5 +193,20 @@ class Admin
         $user->isBlocked = 0;
         $user->save();
         $this->redirect('/admin/users');
+    }
+    
+    public function actionAbout($newAbout = null)
+    {
+        $this->data->about = About::findByPK(1);
+        if (null !== $newAbout) {
+            $about = About::findByPK(1);
+            if(!empty($_FILES['newAbout']['name']['image'])) {
+                move_uploaded_file($_FILES['newAbout']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/' . $_FILES['newAbout']['name']['image']);
+                $about->pictureName = $_FILES['newAbout']['name']['image'];
+            }
+            $about->fill($newAbout);
+            $about->save();
+            $this->redirect('/admin');
+        }
     }
 }

@@ -4,6 +4,12 @@ namespace App\Models;
 
 use T4\Orm\Model;
 
+/**
+ * Class Role
+ * @package App\Models
+ * 
+ * @TODO хорошая система ролей
+ */
 class Role
     extends Model
 {

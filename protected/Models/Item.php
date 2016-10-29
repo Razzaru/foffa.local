@@ -5,6 +5,12 @@ namespace App\Models;
 use T4\Core\Exception;
 use T4\Orm\Model;
 
+/**
+ * Class Item
+ * @package App\Models
+ *
+ * @TODO полностью переписать систему итемов, добавить дерево категорий (шмотки, байки, аксесуары, etc)
+ */
 class Item
     extends Model
 {

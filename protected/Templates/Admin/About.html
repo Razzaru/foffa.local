@@ -1,0 +1,47 @@
+{% extends 'Index.html' %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>Edit about</h2>
+      </header>
+      <span class="image"><img src="../images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+  <section class="wrapper style1 special fade-up">
+    <div class="container">
+      <h3>Add new article</h3>
+      <form method="post" action="/admin/about" enctype="multipart/form-data">
+        <div class="row uniform 50%">
+          <div class="12u 12u$(xsmall)">
+            <input type="text" name="newAbout[title]" id="title" value="{{ about.title }}" placeholder="Description">
+          </div>
+          <br>
+          <div class="12u 12u$(xsmall)">
+            <textarea name="newAbout[lead]" id="lead" placeholder="Enter the lead" rows="6">{{ about.lead }}</textarea>
+          </div>
+        </div>
+        <br>
+        <div class="12u$ 12u$(xsmall)">
+          <textarea name="newAbout[article]" id="article" placeholder="Enter the article" rows="6">{{ about.article }}</textarea>
+        </div>
+        <br>
+        <div class="12u$ 12u$(xsmall)">
+          <label for="image">Add an about picture</label>
+          <input type="file" id="image" name="newAbout[image]">
+        </div>
+        <br>
+        <div class="12u$">
+          <ul class="actions">
+            <li><input type="submit" value="Update" class="special"></li>
+            <li><input type="reset" value="Reset"></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

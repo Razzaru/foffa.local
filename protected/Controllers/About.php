@@ -18,6 +18,6 @@ class About
     
     public function actionDefault()
     {
-        
+        $this->data->about = \App\Models\About::findByPK(1);
     }
 }
