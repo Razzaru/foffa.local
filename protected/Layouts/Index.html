@@ -25,7 +25,40 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/news">News</a></li>
-        <li><a href="/items">Items</a></li>
+        <li><a href="/items">Our products</a>
+          <ul>
+            <li><a href="/bikes">Bikes</a>
+              <ul>
+                <li><a href="/bikes/dandy">Dandy bikes</a></li>
+                <li><a href="/bikes/ladies">Ladies bikes</a></li>
+                <li><a href="/bikes/singlespeed">Single speed bikes</a></li>
+                <li><a href="/bikes/premium">Premium bikes</a></li>
+                <li><a href="/bikes/urban">Urban bikes</a></li>
+              </ul>
+            </li>
+            <li><a href="/accessoires">Accessoires</a>
+              <ul>
+                <li><a href="/accessoires/saddles">Saddles</a></li>
+                <li><a href="/accessoires/pedals">Pedals</a></li>
+                <li><a href="/accessoires/tapes-and-grips">Tapes & Grips</a></li>
+                <li><a href="/accessoires/security">Security</a></li>
+                <li><a href="/accessoires/mudguards">Mudguards</a></li>
+                <li><a href="/accessoires/ligths">Lights</a></li>
+                <li><a href="/accessoires/helmets">Helmets</a></li>
+              </ul>
+            </li>
+            <li><a href="/clothing">Clothing</a>
+              <ul>
+                <li><a href="/clothing/t-shorts">T-shorts</a></li>
+                <li><a href="/clothing/softshell">Softshell</a></li>
+                <li><a href="/clothing/harrington">Harrington</a></li>
+                <li><a href="/clothing/chinos">Chinos</a></li>
+                <li><a href="/clothing/shorts">Shorts</a></li>
+                <li><a href="/clothing/bundles">Bundles</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="/contacts">Contact us</a>
         <li><a href="/about">About</a></li>
         {% if app.user.roles[0].name == 'admin' %}

@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Components\DataWork;
 use App\Components\GetStyle;
+use App\Models\Category;
 use App\Models\Characteristic;
 use App\Models\Item;
 use T4\Mvc\Controller;
@@ -21,13 +23,6 @@ class Items
     
     public function actionDefault()
     {
-        $items = Item::findAll();
-        $reverseItems = $items->reverse();
-        $this->data->items = $reverseItems;
-    }
-
-    public function actionItem($id)
-    {
-        $this->data->item = Item::findByPK($id);
+        $this->data->categories = DataWork::findAllLastCats();
     }
 }

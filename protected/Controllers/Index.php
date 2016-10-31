@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Components\DataWork;
 use App\Models\Category;
 use App\Models\Email;
 use App\Models\Feature;
@@ -47,7 +48,7 @@ class Index
     
     public function actionTest()
     {
-        var_dump(Item::findByPK(10)->category);die;
+        DataWork::findBikeCats();
     }
 
 }
