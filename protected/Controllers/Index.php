@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Category;
 use App\Models\Email;
 use App\Models\Feature;
 use App\Models\Item;
@@ -46,7 +47,7 @@ class Index
     
     public function actionTest()
     {
-        var_dump($this->app->user->session);die;
+        var_dump(Item::findByPK(10)->category);die;
     }
 
 }

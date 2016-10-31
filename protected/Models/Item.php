@@ -24,7 +24,8 @@ class Item
         ],
         'relations' => [
             'characteristic' => ['type' => self::BELONGS_TO, 'model' => Characteristic::class],
-            'users' => ['type' => self::MANY_TO_MANY, 'model' => User::class, 'by' => '__users_to_items']
+            'users' => ['type' => self::MANY_TO_MANY, 'model' => User::class, 'by' => '__users_to_items'],
+            'category' => ['type' => self::BELONGS_TO, 'model' => Category::class]
         ]
     ];
 
