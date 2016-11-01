@@ -48,7 +48,8 @@ class Index
     
     public function actionTest()
     {
-        DataWork::findBikeCats();
+        $item = Item::findAll();
+        DataWork::getTitleForUrl($item);
     }
 
 }

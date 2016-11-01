@@ -19,6 +19,9 @@ class Category
         'columns' => [
             'category' => ['type' => 'string'],
         ],
+        'relations' => [
+            'items' => ['type' => self::HAS_MANY, 'model' => Item::class]
+        ]
     ];
 
     static protected $extensions = [

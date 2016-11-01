@@ -34,7 +34,7 @@ class Profile
      *
      * @TODO Удаление итемов из профиля
      */
-    public function actionEdit($user = null, $itemId = null, $deleteItemId = null)
+    public function actionEdit($user = null, $itemId = null)
     {
         $this->data->user = $this->app->user; 
         $this->data->items = Item::findAll();
@@ -44,13 +44,10 @@ class Profile
         }
         if (null !== $user) {
             $this->app->user->fill($user);
-            if (null !== $itemId)
+            if (!empty($itemId))
             {
                 $item = Item::findByPK($itemId);
                 $this->app->user->items->add($item);
-            }
-            if (null !== $deleteItemId) {
-                $userId = $this->app->user->getPk();
             }
             $this->app->user->save();
             $this->redirect('/profile');

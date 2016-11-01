@@ -20,7 +20,8 @@ class Item
             'description' => ['type' => 'text'],
             'is_featured' => ['type' => 'boolean'],
             'pictureName' => ['type' => 'string'],
-            'style' => ['type' => 'boolean']
+            'style' => ['type' => 'boolean'],
+            'url' => ['type' => 'string'],
         ],
         'relations' => [
             'characteristic' => ['type' => self::BELONGS_TO, 'model' => Characteristic::class],

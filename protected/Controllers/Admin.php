@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 
+use App\Components\DataWork;
 use App\Components\GetStyle;
 use App\Models\About;
 use App\Models\Article;
@@ -146,6 +147,7 @@ class Admin
                 $char->save();
                 $newItem->__characteristic_id = $char->getPk();
             }
+            $newItem->url = DataWork::getTitleForUrl($newItem);
             $newItem->save();
             $this->redirect('/admin/items');
         }

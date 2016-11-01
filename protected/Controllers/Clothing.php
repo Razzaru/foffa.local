@@ -11,6 +11,8 @@ namespace App\Controllers;
 
 use App\Components\DataWork;
 use T4\Mvc\Controller;
+use App\Models\Category;
+use App\Models\Item;
 
 class Clothing
     extends Controller
@@ -18,5 +20,17 @@ class Clothing
     public function actionDefault()
     {
         $this->data->categories = DataWork::findClothingCats();
+    }
+
+    public function actionCategory($cat)
+    {
+        $category = Category::findByTitle($cat);
+        $this->data->category = $category;
+        $this->data->items = $category->items;
+    }
+
+    public function actionOneItem($url)
+    {
+        $this->data->item = Item::findByUrl($url);
     }
 }
