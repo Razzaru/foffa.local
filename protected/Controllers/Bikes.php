@@ -13,6 +13,7 @@ use T4\Mvc\Controller;
  * @package App\Controllers
  * 
  * @TODO отображение картинок на /fdgsdfg/dfsgsdf
+ * @TODO инкапсулировать всё под итемы, невозможный говнокод вообще
  */
 class Bikes
     extends Controller
