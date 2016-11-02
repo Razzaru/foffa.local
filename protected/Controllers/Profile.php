@@ -38,7 +38,7 @@ class Profile
     {
         $this->data->user = $this->app->user; 
         $this->data->items = Item::findAll();
-        if(!empty($_FILES['user'])) {
+        if(!empty($_FILES['user']['name']['avatar'])) {
             $user->avatar = $_FILES['user']['name']['avatar'];
             move_uploaded_file($_FILES['user']['tmp_name']['avatar'], ROOT_PATH_PUBLIC . '/images/users/' . $_FILES['user']['name']['avatar']);
         }
