@@ -1,0 +1,55 @@
+{% extends 'Index.html' %}
+
+{% block title %} Add new category {% endblock %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>You can add a category here</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+<section class="wrapper style1 special fade-up">
+  <div class="container">
+    <h3>Add new article</h3>
+    <form method="post" action="/admin/addcategory" enctype="multipart/form-data">
+      <div class="row uniform 50%">
+        <div class="12u 12u$(xsmall)">
+          <input type="text" name="cat[category]" id="category" value="" placeholder="Category name">
+        </div>
+        <br>
+        <div class="12u 12u$(xsmall)">
+          <input type="text" name="cat[title]" id="title" value="" placeholder="Category web-name">
+        </div>
+        <br>
+        <div class="12u$">
+          <h4>Category parent (can be empty):</h4>
+          <div class="select-wrapper">
+            <select name="cat[parent]" id="parent">
+              <option value="" selected>- Category -</option>
+              {% for category in categories %}
+                <option value="{{ category.getPK() }}">{{ category.category }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="12u$ 12u$(xsmall)">
+          <input type="file" id="image" name="cat[image]">
+        </div>
+        <br>
+        <div class="12u$">
+          <ul class="actions">
+            <li><input type="submit" value="Add to site" class="special"></li>
+            <li><input type="reset" value="Reset"></li>
+          </ul>
+        </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

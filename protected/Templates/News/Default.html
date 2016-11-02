@@ -18,7 +18,7 @@
 {% block news %}
     {% for article in articles %}
         <section id="two" class="spotlight {% if article.style == true %} style2 right {% else %} style3 left {% endif %}">
-            <span class="image fit main"><img src="images/news/{{ article.pictureName }}" alt="{{ article.title }}" /></span>
+            <span class="image fit main"><img src="/images/news/{{ article.pictureName }}" alt="{{ article.title }}" /></span>
             <div class="content">
                 <header>
                     <h2>{{ article.title }}</h2>

@@ -18,6 +18,8 @@ class Category
         'table' => 'categories',
         'columns' => [
             'category' => ['type' => 'string'],
+            'title' => ['type' => 'string'],
+            'pictureName' => ['type' => 'string']
         ],
         'relations' => [
             'items' => ['type' => self::HAS_MANY, 'model' => Item::class]

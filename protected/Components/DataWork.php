@@ -20,6 +20,18 @@ class DataWork
         }
         return $data;
     }
+    
+    static public function findCatsWithoutChildren()
+    {
+        $cats = Category::findAll();
+        $data = new Collection();
+        foreach ($cats as $cat) {
+            if(!$cat->children[0]) {
+                $data[] = $cat;
+            }
+        }
+        return $data;
+    }
 
     static public function findBikeCats()
     {

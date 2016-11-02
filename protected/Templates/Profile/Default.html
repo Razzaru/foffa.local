@@ -25,7 +25,7 @@
           <div class="row 50% uniform">
           {% for item in user.items %}
             <div class="4u 6u(xsmall)">
-              <a href="/items/item?id={{ item.getPk() }}" class="image fit">
+              <a href="/shop/{{ item.url }}" class="image fit">
                 <img src="images/items/{{ item.pictureName }}" alt="">
               </a>
             </div>

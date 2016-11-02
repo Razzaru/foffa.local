@@ -7,6 +7,7 @@ use App\Components\DataWork;
 use App\Components\GetStyle;
 use App\Models\About;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Characteristic;
 use App\Models\Item;
 use App\Models\Role;
@@ -125,10 +126,11 @@ class Admin
         }
     }
 
-    public function actionAddItem($item = null, $characteristic = null)
+    public function actionAddItem($item = null, $category = null, $characteristic = null)
     {
         $characteristics = Characteristic::findAll();
         $this->data->characteristics = $characteristics;
+        $this->data->categories = DataWork::findCatsWithoutChildren();
 
         if (null !== $item) {
             if(!$item->is_featured) {
@@ -139,6 +141,9 @@ class Admin
             $newItem->fill($item);
             $newItem->pictureName = $_FILES['item']['name']['image'];
             $newItem->style = GetStyle::getItemStyle();
+            if(null !== $category) {
+                $newItem->category = Category::findByPK($category);
+            }
             if(empty ($characteristic->frame)) {
                 $newItem->__characteristic_id = $_POST['presetCharacteristic'];
             } else {
@@ -209,6 +214,22 @@ class Admin
             $about->fill($newAbout);
             $about->save();
             $this->redirect('/admin');
+        }
+    }
+
+    public function actionAddCategory($cat = null)
+    {
+        $this->data->categories = Category::findAll();
+        if (null !== $cat) {
+            $newCat = new Category();
+            $newCat->fill($cat);
+            if(!empty($_FILES['cat']['name']['image'])) {
+                move_uploaded_file($_FILES['cat']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/categories/' . $_FILES['cat']['name']['image']);
+                $newCat->pictureName = $_FILES['cat']['name']['image'];
+            }
+            $newCat->parent = Category::findByPK($cat->parent);
+            $newCat->save();
+            $this->redirect('/admin/items');
         }
     }
 }
