@@ -1,0 +1,47 @@
+{% extends 'Index.html' %}
+
+{% block title %} Categories {% endblock %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>Choose a category</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block items %}
+  <div class="row 50% uniform">
+    {% for category in categories %}
+      <div class="4u 6u(xsmall)">
+        <a href="/{{ category.title }}" class="image fit">
+          <img src="images/categories/{{ category.pictureName }}" alt="">
+          <h4 class="align-center">{{ category.category }}</h4>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block featuredItem %}
+  <section id="one" class="spotlight style1 bottom">
+    <span class="image fit main"><img src="images/" alt="" /></span>
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="4u 12u$(medium)">
+            <header>
+              <h2></h2>
+            </header>
+          </div>
+          <div class="8u 12u$(medium)">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

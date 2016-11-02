@@ -1,0 +1,70 @@
+{% extends 'Index.html' %}
+
+{% block title %}
+  {{ item.model_name }}
+{% endblock %}
+
+{% block article %}
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <img src="../images/items/{{ item.pictureName }}" alt="{{ item.model_name }}" width="1400"/>
+        <h2>{{ item.model_name }}</h2>
+      </header>
+      <section id="content">
+        <p class="align-center">{{ item.description }}</p>
+        <h3>Characteristics:</h3>
+        <table>
+          <tr>
+            <th><strong>Frame:</strong></th>
+            <td>{{ item.characteristic.frame }}</td>
+            <th><strong>Rims:</strong></th>
+            <td>{{ item.characteristic.rims }}</td>
+          </tr>
+          <tr>
+            <th><strong>Hubs:</strong></th>
+            <td>{{ item.characteristic.hubs }}</td>
+            <th><strong>Tyres:</strong></th>
+            <td>{{ item.characteristic.tyres }}</td>
+          </tr>
+          <tr>
+            <th><strong>Crankset:</strong></th>
+            <td>{{ item.characteristic.crankset }}</td>
+            <th><strong>Bottom bracket:</strong></th>
+            <td>{{ item.characteristic.bottom_bracket }}</td>
+          </tr>
+          <tr>
+            <th><strong>Chain KMC:</strong></th>
+            <td>{{ item.characteristic.chain_kmc }}</td>
+            <th><strong>Bars:</strong></th>
+            <td>{{ item.characteristic.bars }}</td>
+          </tr>
+          <tr>
+            <th><strong>Stem:</strong></th>
+            <td>{{ item.characteristic.stem }}</td>
+            <th><strong>Tape:</strong></th>
+            <td>{{ item.characteristic.tape }}</td>
+          </tr>
+          <tr>
+            <th><strong>Brakes:</strong></th>
+            <td>{{ item.characteristic.brakes }}</td>
+            <th><strong>Calipers:</strong></th>
+            <td>{{ item.characteristic.calipers }}</td>
+          </tr>
+          <tr>
+            <th><strong>Seatpost:</strong></th>
+            <td>{{ item.characteristic.seatpost }}</td>
+            <th><strong>Saddle:</strong></th>
+            <td>{{ item.characteristic.saddle }}</td>
+          </tr>
+          <tr>
+            <th><strong>Pedals:</strong></th>
+            <td>{{ item.characteristic.pedals }}</td>
+            <th><strong>Weight:</strong></th>
+            <td>{{ item.characteristic.weight }}</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </div>
+{% endblock %}

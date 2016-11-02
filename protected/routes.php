@@ -3,7 +3,9 @@
 return [
     '/registration' => '//Login/Registration',
     '/logout' => '//Login/Logout',
-    '/bikes/<1>' => '//Bikes/Category(cat=<1>)',
-    '/bikes/<2>' => '//Bikes/OneItem(url=<2>)',
     '/admin' => '//Admin/Default',
+    '/bikes/<1>' => '//Bikes/Category(cat=<1>)',
+    '/accessories/<1>' => '//Accessories/Category(cat=<1>)',
+    '/clothing/<1>' => '//Clothing/Category(cat=<1>)',
+    '/shop/<2>' => '//Shop/OneItem(url=<2>)'
 ];

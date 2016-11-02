@@ -23,7 +23,7 @@ class Bikes
         $this->data->categories = DataWork::findBikeCats();
     }
 
-    public function actionCategory($cat)
+    public function actionCategory($cat = null)
     {
         $category = Category::findByTitle($cat);
         $this->data->category = $category;
@@ -33,5 +33,6 @@ class Bikes
     public function actionOneItem($url)
     {
         $this->data->item = Item::findByUrl($url);
+        var_dump($this->data->item);die;
     }
 }
