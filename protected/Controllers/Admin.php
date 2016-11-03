@@ -18,7 +18,6 @@ use T4\Mvc\Controller;
  * Class Admin
  * @package App\Controllers
  * 
- * @TODO удаление картинок после их замены
  */
 class Admin
     extends Controller
@@ -56,6 +55,12 @@ class Admin
         }
         if(null !== $article)
         {
+            if(!empty($_FILES['article']['name']['image'])) {
+                $picture = $art->pictureName;
+                unlink(ROOT_PATH_PUBLIC . '/images/news/' . $picture);
+                move_uploaded_file($_FILES['article']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/news/' . $_FILES['article']['name']['image']);
+                $art->pictureName = $_FILES['article']['name']['image'];
+            }
             $art->fill($article);
             $art->save();
             $this->redirect('/admin/articles');
@@ -66,6 +71,8 @@ class Admin
     {
         if (null !== $id) {
             $article = Article::findByPK($id);
+            $picture = $article->pictureName;
+            unlink(ROOT_PATH_PUBLIC . '/images/news/' . $picture);
             $article->delete();
             $this->redirect('/admin/articles');
         } else {
@@ -106,6 +113,12 @@ class Admin
         }
         
         if (null !== $item) {
+            if(!empty($_FILES['item']['name']['image'])) {
+                $picture = $oldItem->pictureName;
+                unlink(ROOT_PATH_PUBLIC . '/images/items/' . $picture);
+                move_uploaded_file($_FILES['item']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/items/' . $_FILES['item']['name']['image']);
+                $oldItem->pictureName = $_FILES['item']['name']['image'];
+            }
             $oldItem->fill($item);
             $oldItem->save();
             $oldCharacteristic->fill($characteristic);
@@ -119,6 +132,8 @@ class Admin
     {
         if (null !== $id) {
             $item = Item::findByPK($id);
+            $picture = $item->pictureName;
+            unlink(ROOT_PATH_PUBLIC . '/images/items/' . $picture);
             $item->delete();
             $this->redirect('/admin/items');
         } else {
@@ -182,6 +197,8 @@ class Admin
     public function actionDeleteUser($id)
     {
         $user = User::findByPK($id);
+        $picture = $user->pictureName;
+        unlink(ROOT_PATH_PUBLIC . '/images/users/' . $picture);
         $user->delete();
         $this->redirect('/admin/users');
     }
@@ -208,6 +225,8 @@ class Admin
         if (null !== $newAbout) {
             $about = About::findByPK(1);
             if(!empty($_FILES['newAbout']['name']['image'])) {
+                $picture = $about->pictureName;
+                unlink(ROOT_PATH_PUBLIC . '/images/' . $picture);
                 move_uploaded_file($_FILES['newAbout']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/' . $_FILES['newAbout']['name']['image']);
                 $about->pictureName = $_FILES['newAbout']['name']['image'];
             }
