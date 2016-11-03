@@ -1,0 +1,56 @@
+{% extends 'Index.html' %}
+
+{% block title %} Add new article {% endblock %}
+
+{% block banner %}
+    <section id="banner">
+        <div class="content">
+            <header>
+                <h2>You can add an article here</h2>
+            </header>
+            <span class="image"><img src="/images/logo.jpg" alt="" /></span>
+        </div>
+    </section>
+{% endblock %}
+
+{% block form %}
+    <section class="wrapper style1 special fade-up">
+        <div class="container">
+            <h3>Add new article</h3>
+            <form method="post" action="/moderator/addarticle" enctype="multipart/form-data">
+                <div class="row uniform 50%">
+                    <div class="12u 12u$(xsmall)">
+                        <input type="text" name="article[title]" id="title" value="" placeholder="Title">
+                    </div>
+                    <br>
+                    <div class="12u 12u$(xsmall)">
+                        <input type="text" name="article[description]" id="descriprtion" value="" placeholder="Description">
+                    </div>
+                    <br>
+                    <div class="12u 12u$(xsmall)">
+                        <textarea name="article[lead]" id="lead" placeholder="Enter the lead" rows="6"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="12u$ 12u$(xsmall)">
+                    <textarea name="article[article]" id="article" placeholder="Enter the article" rows="6"></textarea>
+                </div>
+                <br>
+                <div class="12u$ 12u$(xsmall)">
+                    <input type="checkbox" id="is_featured" name="article[is_featured]">
+                    <label for="is_featured">Is this article featured?</label>
+                </div>
+                <div class="12u$ 12u$(xsmall)">
+                    <input type="file" id="image" name="article[image]">
+                </div>
+                <br>
+                <div class="12u$">
+                    <ul class="actions">
+                        <li><input type="submit" value="Add to site" class="special"></li>
+                        <li><input type="reset" value="Reset"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

@@ -11,8 +11,6 @@ use T4\Mvc\Controller;
 /**
  * Class Bikes
  * @package App\Controllers
- * 
- * @TODO отображение картинок на /fdgsdfg/dfsgsdf
  */
 class Bikes
     extends Controller

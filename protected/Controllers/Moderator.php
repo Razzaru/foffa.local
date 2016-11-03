@@ -2,29 +2,21 @@
 
 namespace App\Controllers;
 
-
+use T4\Mvc\Controller;
 use App\Components\DataWork;
 use App\Components\GetStyle;
-use App\Models\About;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Characteristic;
 use App\Models\Item;
-use App\Models\Role;
-use App\Models\User;
-use T4\Mvc\Controller;
 
-/**
- * Class Admin
- * @package App\Controllers
- */
-class Admin
+class Moderator
     extends Controller
 {
     public function access($action)
     {
         if (!empty($this->app->user)) {
-            if ($this->app->user->roles[0]->name === 'admin') {
+            if ($this->app->user->roles[0]->name === 'admin' || $this->app->user->roles[0]->name === 'moderator') {
                 if ($this->app->user->isBlocked == '1') {
                     return false;
                 }
@@ -34,8 +26,9 @@ class Admin
         }
     }
     
-    public function actionDefault()
+    public function actionDefault() 
     {
+        
     }
 
     public function actionArticles()
@@ -49,7 +42,7 @@ class Admin
             $art = Article::findByPK($id);
             $this->data->article = $art;
         } else {
-            $this->redirect('/admin/articles');
+            $this->redirect('/moderator/articles');
         }
         if(null !== $article)
         {
@@ -63,7 +56,7 @@ class Admin
             }
             $art->fill($article);
             $art->save();
-            $this->redirect('/admin/articles');
+            $this->redirect('/moderator/articles');
         }
     }
 
@@ -76,12 +69,12 @@ class Admin
                 unlink(ROOT_PATH_PUBLIC . '/images/news/' . $picture);
             }
             $article->delete();
-            $this->redirect('/admin/articles');
+            $this->redirect('/moderator/articles');
         } else {
-            $this->redirect('/admin/items');
+            $this->redirect('/moderator/items');
         }
     }
-    
+
     public function actionAddArticle($article = null)
     {
         if (null !== $article) {
@@ -94,15 +87,15 @@ class Admin
             $newArticle->pictureName = $_FILES['article']['name']['image'];
             $newArticle->style = GetStyle::getArticleStyle();
             $newArticle->save();
-            $this->redirect('/admin/articles');
+            $this->redirect('/moderator/articles');
         }
     }
-    
+
     public function actionItems()
     {
         $this->data->items = Item::findAll();
     }
-    
+
     public function actionUpdateItem($id = null, $item = null, $characteristic = null)
     {
         if (null !== $id) {
@@ -110,8 +103,8 @@ class Admin
             $oldCharacteristic = $oldItem->characteristic;
             $this->data->item = $oldItem;
             $this->data->characteristic = $oldCharacteristic;
-            } else {
-            $this->redirect('/admin/items');
+        } else {
+            $this->redirect('/moderator/items');
         }
         if (null !== $item) {
             if(!empty($_FILES['item']['name']['image'])) {
@@ -126,10 +119,10 @@ class Admin
             $oldItem->save();
             $oldCharacteristic->fill($characteristic);
             $oldCharacteristic->save();
-            $this->redirect('/admin/items');
+            $this->redirect('/moderator/items');
         }
     }
-    
+
     public function actionDeleteItem($id = null)
     {
         if (null !== $id) {
@@ -139,9 +132,9 @@ class Admin
                 unlink(ROOT_PATH_PUBLIC . '/images/items/' . $picture);
             }
             $item->delete();
-            $this->redirect('/admin/items');
+            $this->redirect('/moderator/items');
         } else {
-            $this->redirect('/admin/items');
+            $this->redirect('/moderator/items');
         }
     }
 
@@ -173,92 +166,7 @@ class Admin
             }
             $newItem->url = DataWork::getTitleForUrl($newItem);
             $newItem->save();
-            $this->redirect('/admin/items');
-        }
-    }
-
-    /**
-     * @TODO непонятно как убрать что-либо из коллекции
-     */
-    public function actionUsers()
-    {
-        $this->data->users = User::findAll();
-    }
-    
-    public function actionUpRoleUser($id)
-    {
-        $admin = Role::findByName('moderator');
-        $user = User::findByPK($id);
-        $user->roles->add($admin);
-        $user->save();
-        $this->redirect('/admin/users');
-    }
-    
-    /*
-    public function actionDownRoleUser($id)
-    {
-    }
-    */
-
-    public function actionDeleteUser($id)
-    {
-        $user = User::findByPK($id);
-        $picture = $user->pictureName;
-        if(!empty($picture)) {
-            unlink(ROOT_PATH_PUBLIC . '/images/users/' . $picture);
-        }
-        $user->delete();
-        $this->redirect('/admin/users');
-    }
-    
-    public function actionBlockUser($id)
-    {
-        $user = User::findByPK($id);
-        $user->isBlocked = true;
-        $user->save();
-        $this->redirect('/admin/users');
-    }
-
-    public function actionUnblockUser($id)
-    {
-        $user = User::findByPK($id);
-        $user->isBlocked = 0;
-        $user->save();
-        $this->redirect('/admin/users');
-    }
-    
-    public function actionAbout($newAbout = null)
-    {
-        $this->data->about = About::findByPK(1);
-        if (null !== $newAbout) {
-            $about = About::findByPK(1);
-            if(!empty($_FILES['newAbout']['name']['image'])) {
-                $picture = $about->pictureName;
-                if(!empty($picture)) {
-                    unlink(ROOT_PATH_PUBLIC . '/images/' . $picture);
-                }
-                move_uploaded_file($_FILES['newAbout']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/' . $_FILES['newAbout']['name']['image']);
-                $about->pictureName = $_FILES['newAbout']['name']['image'];
-            }
-            $about->fill($newAbout);
-            $about->save();
-            $this->redirect('/admin');
-        }
-    }
-
-    public function actionAddCategory($cat = null)
-    {
-        $this->data->categories = Category::findAll();
-        if (null !== $cat) {
-            $newCat = new Category();
-            $newCat->fill($cat);
-            if(!empty($_FILES['cat']['name']['image'])) {
-                move_uploaded_file($_FILES['cat']['tmp_name']['image'], ROOT_PATH_PUBLIC . '/images/categories/' . $_FILES['cat']['name']['image']);
-                $newCat->pictureName = $_FILES['cat']['name']['image'];
-            }
-            $newCat->parent = Category::findByPK($cat->parent);
-            $newCat->save();
-            $this->redirect('/admin/items');
+            $this->redirect('/moderator/items');
         }
     }
 }

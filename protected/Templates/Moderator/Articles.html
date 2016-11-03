@@ -1,0 +1,40 @@
+{% extends 'Index.html' %}
+
+{% block banner %}
+  <section id="banner">
+    <div class="content">
+      <header>
+        <h2>Article manipulations</h2>
+      </header>
+      <span class="image"><img src="images/logo.jpg" alt="" /></span>
+    </div>
+  </section>
+{% endblock %}
+
+{% block panel %}
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <h2>Admin functions:</h2>
+      </header>
+      <section id="content">
+        <ul class="actions fit">
+            <li><a href="/moderator" class="button special fit">Back</a></li>
+            <li><a href="/moderator/addarticle" class="button special fit">Add article</a></li>
+        </ul>
+        <table>
+          {% for article in articles %}
+          <tr>
+            <th>{{ article.title }}</th>
+            <td>
+              <a href="/moderator/updatearticle?id={{ article.getPK() }}" class="button" style="float: right">Update</a>
+              <a href="/moderator/deletearticle?id={{ article.getPK() }}" class="button" style="float: right">Delete</a>
+              <a href="/news/article?id={{ article.getPK() }}" class="button" target="_blank" style="float: right">Read</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </section>
+    </div>
+  </div>
+{% endblock %}

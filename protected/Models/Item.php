@@ -9,7 +9,7 @@ use T4\Orm\Model;
  * Class Item
  * @package App\Models
  *
- * @TODO полностью переписать систему итемов, добавить дерево категорий (шмотки, байки, аксесуары, etc)
+ * @TODO всё таки валидация
  */
 class Item
     extends Model

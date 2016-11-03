@@ -63,6 +63,8 @@
         <li><a href="/about">About</a></li>
         {% if app.user.roles[0].name == 'admin' %}
             <li><a href="/admin" class="button"><span class="fa fa-cube">Admin Panel</span></a></li>
+        {% elseif app.user.roles[0].name == 'moderator' %}
+          <li><a href="/moderator" class="button"><span class="fa fa-cube">Moderator Panel</span></a></li>
         {% endif %}
         {% if app.user %}
           <li><a href="/profile" class="button"><span class="fa fa-user">Profile</span></a>

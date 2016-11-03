@@ -13,6 +13,7 @@
 {% endblock %}
 
 {% block featuredArticle %}
+    {% if featuredArticle != null %}
     <section id="one" class="spotlight style1 bottom">
         <span class="image fit main"><img src="images/news/{{ featuredArticle.pictureName }}" alt="" /></span>
         <div class="content">
@@ -34,6 +35,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 {% endblock %}
 
 {% block featuredItems %}

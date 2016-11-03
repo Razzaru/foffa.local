@@ -29,7 +29,6 @@ class Profile
     /**
      * @param null $user
      * @param null $itemId
-     * @param null $deleteItemId
      * @throws \T4\Core\MultiException
      *
      * @TODO Удаление итемов из профиля
