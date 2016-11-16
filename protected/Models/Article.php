@@ -23,18 +23,19 @@ class Article
 
     protected function validateTitle($v)
     {
-        if (strlen($v) > 255) {
-            throw new Exception('Слишком длинное название');
+        if(empty($v)) {
+            throw new Exception('Please, enter the article title');
         }
-        return true;
+        if (strlen($v) > 255) {
+            throw new Exception('Title is too long');
+        }
     }
 
     protected function validateDescription($v)
     {
         if (strlen($v) > 255) {
-            throw new Exception('Слишком длинное описание');
+            throw new Exception('Description is too long');
         }
-        return true;
     }
 
     protected function sanitizeIs_featured($v)
@@ -43,5 +44,16 @@ class Article
             return 1;
         }
         return '0';
+    }
+
+    protected function validatePictureName($v)
+    {
+        if (!empty ($v)) {
+            if (!strpos($v, '.jpg')) {
+                if (!strpos($v, '.png')) {
+                    throw new Exception('Sorry bro, you can upload only jpg and png files');
+                }
+            }
+        }
     }
 }

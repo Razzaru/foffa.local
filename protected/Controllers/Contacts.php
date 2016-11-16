@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 use T4\Mvc\Controller;
 
+/**
+ * Class Contacts
+ * @package App\Controllers
+ *
+ * @TODO отсылать сообщения
+ */
 class Contacts
     extends Controller
 {

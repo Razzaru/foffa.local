@@ -7,8 +7,7 @@ use T4\Orm\Model;
 /**
  * Class User
  * @package App\Models
- * 
- * @TODO прописать валидешоны и санитейшоны по всем моделькам
+ *
  */
 class User
     extends Model

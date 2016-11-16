@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use T4\Core\Exception;
 use T4\Orm\Model;
 
 class About
@@ -17,4 +18,21 @@ class About
         ]
     ];
 
+    protected function validateTitle($v)
+    {
+        if(strlen($v) > 255) {
+            throw new Exception('Title is too long');
+        }
+    }
+
+    protected function validatePictureName($v)
+    {
+        if (!empty ($v)) {
+            if (!strpos($v, '.jpg')) {
+                if (!strpos($v, '.png')) {
+                    throw new Exception('Sorry bro, you can upload only jpg and png files');
+                }
+            }
+        }
+    }
 }

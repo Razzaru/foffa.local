@@ -17,6 +17,14 @@ use App\Models\Item;
 class Clothing
     extends Controller
 {
+    public function access($action)
+    {
+        if ($this->app->user->isBlocked == '1') {
+            return false;
+        }
+        return true;
+    }
+    
     public function actionDefault()
     {
         $this->data->categories = DataWork::findClothingCats();
