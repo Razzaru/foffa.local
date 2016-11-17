@@ -9,5 +9,15 @@ return [
             'password' => '',
             'dbname' => 'foffa'
         ]
+    ],
+    'mail' => [
+        'method' => 'smtp',
+        'host' => 'smtp.mail.ru',
+        'port' => '465',
+        'sender' => 'Razzaru',
+        'auth' => [
+            'username' => 'ruck2424@mail.ru',
+            'password' => '50015001d'
+        ]
     ]
 ];

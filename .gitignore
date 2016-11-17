@@ -3,3 +3,4 @@ vendor
 protected/Cache
 public/Assets
 public/images
+/protected/config.php

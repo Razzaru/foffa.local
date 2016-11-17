@@ -15,37 +15,33 @@
     <section class="wrapper style1 special fade-up">
         <div class="container">
         <h3>Write us a message</h3>
-        <form method="post" action="/send">
+        <form method="post" action="/contacts">
             <div class="row uniform 50%">
                 <div class="6u 12u$(xsmall)">
-                    <input type="text" name="name" id="name" value="" placeholder="Name" />
+                    <input type="text" name="mail[name]" id="name" value="" placeholder="Name" />
                 </div>
                 <div class="6u$ 12u$(xsmall)">
-                    <input type="email" name="email" id="email" value="" placeholder="Email" />
+                    <input type="email" name="mail[email]" id="email" value="" placeholder="Email" />
                 </div>
                 <div class="12u$">
                     <div class="select-wrapper">
-                        <select name="category" id="category">
+                        <select name="mail[category]" id="category">
                             <option value="">- Category -</option>
-                            <option value="Our products">Our products</option>
-                            <option value="Shipping">Shipping</option>
-                            <option value="Administration">Administration</option>
-                            <option value="Web-site">Web-site</option>
+                            <option value="products">Our products</option>
+                            <option value="shipping">Shipping</option>
+                            <option value="administration">Administration</option>
+                            <option value="web-site">Web-site</option>
                         </select>
                     </div>
                 </div>
-                <div class="6u 12u$(medium)">
-                    <input type="checkbox" id="copy" name="copy">
-                    <label for="copy">Email me a copy of this message</label>
-                </div>
-                <div class="6u$ 12u$(medium)">
-                    <input type="checkbox" id="human" name="human" checked>
-                    <label for="human">I am a human and not a robot</label>
+                <div class="12u$">
+                    <textarea name="mail[message]" id="message" placeholder="Enter your message" rows="6"></textarea>
                 </div>
                 <div class="12u$">
-                    <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-                </div>
-                <div class="12u$">
+                    <div class="12u$ 12u$(medium)">
+                        <input type="checkbox" id="human" name="mail[human]">
+                        <label for="human">I am a human and not a robot</label>
+                    </div>
                     <ul class="actions">
                         <li><input type="submit" value="Send Message" class="special" /></li>
                         <li><input type="reset" value="Reset" /></li>
